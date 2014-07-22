@@ -1,0 +1,46 @@
+<h1 class="text-center">To-Do List</h1>
+<div class="row">
+  <div class="col-md-12">
+    <form role="form" id="new-item-form">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" id="item-input" placeholder="What do you need to do...?">
+          <span class="input-group-btn">
+            <button class="btn btn-default" id='item-input-submit' type="submit">Go!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row" style="padding-bottom: 10px;">
+  <div class="col-md-4">
+    <h3>Unsaved things</h3>
+  </div>
+  <div class="col-md-2 text-right">
+    <div class="btn-group" style="display: inline-block; top:15px;">
+      <button type="button" class="btn btn-default" id="unsaved-by-desc">Alpha</button>
+      <button type="button" class="btn btn-default" id="unsaved-by-date">Date</button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>Saved things</h3>
+  </div>
+   <div class="col-md-2 text-right">
+    <div class="btn-group" style="display: inline-block; top:15px;">
+      <button type="button" class="btn btn-default" id="saved-by-desc">Alpha</button>
+      <button type="button" class="btn btn-default" id="saved-by-date">Date</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div id="unsaved-list">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="saved-list">
+    </div>
+  </div>
+</div>

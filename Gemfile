@@ -21,3 +21,6 @@ gem 'active_model_serializers'
 
 # Add Handlebars template support
 gem 'handlebars_assets'
+
+gem 'bootstrap-sass'
+gem "font-awesome-rails"
