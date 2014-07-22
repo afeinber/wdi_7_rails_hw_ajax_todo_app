@@ -11,9 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140722224621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "todos", force: true do |t|
+    t.text     "content",                      null: false
+    t.boolean  "is_completed", default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
