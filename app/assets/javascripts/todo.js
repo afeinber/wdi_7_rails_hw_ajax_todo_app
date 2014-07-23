@@ -18,7 +18,7 @@ TodoApp.Todo.prototype = {
     var footer = $('<div></div>');
     footer.addClass('panel-footer text-right');
     newDiv.append(footer);
-    footer.append($('<div>').addClass('col-md-9 item-date text-left').text(this.dateFromString(this.createdAt)
+    footer.append($('<div>').addClass('col-md-9 item-date text-left').text(this.dateFromString(this.createdAt, false)
       ));
     var btnDiv = $('<div>').addClass('col-md-3');
     footer.append(btnDiv);
@@ -50,7 +50,7 @@ TodoApp.Todo.prototype = {
     var footer = $('<div></div>');
     footer.addClass('panel-footer text-right');
     newDiv.append(footer);
-    footer.append($('<div>').addClass('col-md-9 item-date text-left').text(this.dateFromString(this.completedAt)
+    footer.append($('<div>').addClass('col-md-9 item-date text-left').text(this.dateFromString(this.completedAt, true)
       ));
     var btnDiv = $('<div>').addClass('col-md-3');
     footer.append(btnDiv);
@@ -63,7 +63,11 @@ TodoApp.Todo.prototype = {
     newDiv.data('id', this.id);
     return newDiv;
   },
-  dateFromString: function(date) {
-    return 'Created on: ' +(date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
+  dateFromString: function(date, isComplete) {
+    if(isComplete) {
+      return 'Completed on: ' +(date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
+    } else {
+      return 'Created on: ' +(date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
+    }
   }
 };
