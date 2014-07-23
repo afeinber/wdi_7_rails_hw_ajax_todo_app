@@ -1,3 +1,3 @@
 class Todo < ActiveRecord::Base
-  validates :content, :is_completed, presence: true
+  validates :content, presence: true
 end

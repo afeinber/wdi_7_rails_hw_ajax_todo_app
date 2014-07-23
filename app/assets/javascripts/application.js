@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require todo
+//= require todo_list
+//= require main
 //= require_tree .
