@@ -1,1 +1,3 @@
-$(document).ready(TodoApp.TodoList.init);
+$(document).ready(function() {
+  TodoApp.TodoList.init();
+});

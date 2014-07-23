@@ -40,6 +40,29 @@ TodoApp.Todo.prototype = {
     newDiv.data('id', this.id);
     return newDiv;
   },
+  completedItem: function() {
+    var newDiv = $('<div></div>');
+    newDiv.addClass('panel panel-default to-do-item');
+    var innerDiv = $('<div></div>');
+    innerDiv.addClass('panel-body');
+    innerDiv.text(this.content);
+    newDiv.append(innerDiv);
+    var footer = $('<div></div>');
+    footer.addClass('panel-footer text-right');
+    newDiv.append(footer);
+    footer.append($('<div>').addClass('col-md-9 item-date text-left').text(this.dateFromString(this.completedAt)
+      ));
+    var btnDiv = $('<div>').addClass('col-md-3');
+    footer.append(btnDiv);
+    var delButton = $('<button></button>');
+    delButton.addClass('btn btn-default delete');
+    btnDiv.append(delButton);
+    delIcon = $('<i></i>');
+    delIcon.addClass('fa fa-times');
+    delButton.append(delIcon);
+    newDiv.data('id', this.id);
+    return newDiv;
+  },
   dateFromString: function(date) {
     return 'Created on: ' +(date.getMonth()+1) + '/' + date.getDate() + '/' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
   }

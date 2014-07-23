@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require js-routes
 //= require todo
 //= require todo_list
 //= require main

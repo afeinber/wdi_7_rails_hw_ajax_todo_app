@@ -2,7 +2,7 @@ var TodoApp = TodoApp || {};
 
 TodoApp.TodoList = {
   init: function() {
-    //$('#new-item-form').submit(this.addItem);
+    $('#new-item-form').on('submit', this.createItem.bind(this));
     //$('#saved-list').on('click', '.delete', this.deleteItem);
     //$('#unsaved-list').on('click', '.delete', this.deleteItem);
     //$('#unsaved-list').on('click', '.commit', this.completeItem);
@@ -14,7 +14,7 @@ TodoApp.TodoList = {
   },
   loadTodos: function() {
     $.ajax({
-      url: 'http://localhost:3000/todos',
+      url: Routes.todos_path(),
     })
     .done(this.todoCallbackHandler.bind(this));
   },
@@ -25,12 +25,28 @@ TodoApp.TodoList = {
     todos.forEach(function(todo){
       newTodo = new TodoApp.Todo(todo.id, todo.content, todo.created_at, todo.completed_at);
       if(newTodo.completedAt) {
-        savedList.append(newTodo.showView());
+        savedList.append(newTodo.completedItem());
       } else {
         unsavedList.append(newTodo.showView());
       }
     }.bind(this));
+  },
+  createItem: function(event){
+    event.preventDefault();
+    var content = $('#item-input').val();
+    if(content !== '') {
+      $('#item-input').val('');
+      $.ajax({
+        url: Routes.todos_path(),
+        type: 'POST',
+        dataType: 'json',
+        data: {todo: {content: content}},
+      })
+      .done(this.addItemToList.bind(this));
+    }
+  },
+  addItemToList: function(todo) {
+    var newTodo = new TodoApp.Todo(todo.id, todo.content, todo.created_at, todo.completed_at);
+    $('#unsaved-list').append(newTodo.showView());
   }
-
-
 };
