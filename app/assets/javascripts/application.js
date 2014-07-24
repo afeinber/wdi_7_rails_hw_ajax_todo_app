@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require js-routes
+//= require handlebars.runtime
 //= require todo
 //= require todo_list
 //= require main

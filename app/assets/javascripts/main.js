@@ -5,3 +5,11 @@ $(document).ready(function() {
     $('#unsaved-count').empty().text(TodoApp.TodoList.todos.length);
   });
 });
+
+Handlebars.registerHelper('timeFromString', function(createdAt, completedAt){
+  if(completedAt) {
+    return 'Completed on: ' +(completedAt.getMonth()+1) + '/' + completedAt.getDate() + '/' + completedAt.getFullYear() + ' at ' + completedAt.getHours() + ':' + completedAt.getMinutes();
+  } else {
+    return 'Created on: ' +(createdAt.getMonth()+1) + '/' + createdAt.getDate() + '/' + createdAt.getFullYear() + ' at ' + createdAt.getHours() + ':' + createdAt.getMinutes();
+  }
+});
